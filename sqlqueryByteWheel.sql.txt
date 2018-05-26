@@ -1,0 +1,44 @@
+CREATE TABLE byetwheelCarCategory(category_id number(10),category_name varchar2(256),categoryRate number(10,2),
+                                   CONSTRAINT byetwheelCarCategory_pk PRIMARY KEY (category_id ));
+ 
+ 
+ desc byteWheelCar;                                  
+                                   
+CREATE TABLE byteWheelCar(car_id number(10),car_name varchar2(256),category_id number(10), CONSTRAINT byetwheelCar_pk PRIMARY KEY (car_id ),
+                          CONSTRAINT fk_car
+    FOREIGN KEY (category_id )
+    REFERENCES byetwheelCarCategory(category_id));   
+    
+
+CREATE TABLE carBooking(booking_id number(10),car_id number(10),car_issue_date date,car_return_date date,
+
+
+CONSTRAINT carBooking_pk PRIMARY KEY (booking_id),CONSTRAINT fk_car_booking
+    FOREIGN KEY (car_id )
+    REFERENCES byteWheelCar(car_id));
+
+insert into byetwheelCarCategory
+values
+(1,'Compact',20);
+
+insert into byetwheelCarCategory
+values
+(2,'Full',30);
+
+insert into byetwheelCarCategory
+values
+(3,'Large',40);
+
+insert into byetwheelCarCategory
+values
+(4,'Luxury',50);    
+
+SELECT * FROM collegeone;
+
+SELECT * FROM byetwheelCarCategory;
+
+SELECT * FROM byteWheelCar;
+
+INSERT INTO bytewheelcar
+values
+(1,'Ford',1);
